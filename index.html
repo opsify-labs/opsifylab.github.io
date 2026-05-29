@@ -6,11 +6,14 @@
     <title>Opsify Lab | The Operating System for Modern Supply Businesses</title>
     <meta name="description" content="Manage your entire pipeline from the first enquiry to the final payment. Generate instant PDFs, track dispatches, and give clients real-time visibility.">
     
-    <link rel="icon" href="https://drive.google.com/uc?export=view&id=1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" type="image/png">
+    <!-- Favicon -->
+    <link rel="icon" href="https://lh3.googleusercontent.com/d/1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" type="image/png">
     
+    <!-- Bootstrap 5 & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
+    <!-- QR Code Generator -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
     <style>
@@ -97,10 +100,12 @@
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="https://drive.google.com/uc?export=view&id=1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" height="35" class="me-2" alt="Opsify Lab"> Opsify Lab
+                <!-- Fixed Image Rendering and removed duplicate alt text -->
+                <img src="https://lh3.googleusercontent.com/d/1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" height="35" class="me-2" alt=""> Opsify Lab
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -118,6 +123,7 @@
         </div>
     </nav>
 
+    <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="container mt-5">
             <h1 class="hero-title">The Operating System for<br><span class="text-primary">Modern Supply Businesses</span></h1>
@@ -127,6 +133,7 @@
                 <a href="mailto:admin@opsifylab.com?subject=Opsify%20ERP%20-%20Demo%20Request&body=Hi%20Opsify%20Team%2C%0A%0AI%20would%20like%20to%20schedule%20a%20demo%20of%20the%20Opsify%20ERP%20system.%0A%0AMy%20Company%3A%20%0AMy%20Phone%3A%20%0A%0AThanks!" class="btn btn-ghost-custom btn-lg">Book a Demo</a>
             </div>
             
+            <!-- Dashboard Mockup Abstract -->
             <div class="hero-mockup p-0">
                 <div class="bg-light p-2 border-bottom d-flex align-items-center">
                     <div style="width:12px; height:12px; border-radius:50%; background:#ff5f56; margin-left:10px;"></div>
@@ -138,13 +145,16 @@
         </div>
     </section>
 
+    <!-- TRUST BANNER -->
     <div class="py-4 border-bottom bg-white text-center">
         <p class="text-muted fw-bold text-uppercase small m-0 letter-spacing-1">Trusted by fast-growing trading and industrial supply agencies</p>
     </div>
 
+    <!-- PIPELINE FEATURES -->
     <section id="features" class="feature-section bg-white">
         <div class="container">
             
+            <!-- Block A: CRM & Sales -->
             <div class="row align-items-center feature-block">
                 <div class="col-lg-5 order-2 order-lg-1 mt-4 mt-lg-0">
                     <div class="feature-icon-wrapper"><i class="bi bi-people-fill"></i></div>
@@ -167,6 +177,7 @@
                 </div>
             </div>
 
+            <!-- Block B: Commercials -->
             <div class="row align-items-center feature-block">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="feature-img-box">
@@ -184,11 +195,12 @@
                     <ul class="list-unstyled text-dark fw-bold">
                         <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Auto Intra/Inter-state tax calculation</li>
                         <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 1-click professional PDF generation</li>
-                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Soft-copy and follow-up email macros</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Soft-copy and follow-up email message generators</li>
                     </ul>
                 </div>
             </div>
 
+            <!-- Block C: Fulfillment -->
             <div class="row align-items-center feature-block">
                 <div class="col-lg-5 order-2 order-lg-1 mt-4 mt-lg-0">
                     <div class="feature-icon-wrapper bg-warning bg-opacity-10 text-warning"><i class="bi bi-truck"></i></div>
@@ -217,6 +229,7 @@
         </div>
     </section>
 
+    <!-- TRACKING PORTAL HIGHLIGHT WITH MOCK CAROUSEL -->
     <section id="tracking" class="tracking-section text-center">
         <div class="container">
             <div class="row align-items-center">
@@ -228,9 +241,11 @@
                 </div>
                 <div class="col-lg-5 offset-lg-1">
                     
+                    <!-- Tracker Carousel -->
                     <div id="trackingCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                         <div class="carousel-inner">
                             
+                            <!-- Slide 1: Pending -->
                             <div class="carousel-item active">
                                 <div class="tracking-card">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -247,6 +262,7 @@
                                 </div>
                             </div>
 
+                            <!-- Slide 2: Partially Supplied -->
                             <div class="carousel-item">
                                 <div class="tracking-card">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -263,6 +279,7 @@
                                 </div>
                             </div>
 
+                            <!-- Slide 3: Complete -->
                             <div class="carousel-item">
                                 <div class="tracking-card">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -291,11 +308,13 @@
         </div>
     </section>
 
+    <!-- PRICING SECTION -->
     <section id="pricing" class="pricing-section text-center">
         <div class="container">
             <h2 class="fw-bold mb-3">Simple, Scalable Pricing</h2>
             <p class="text-muted mb-5">Secure your instance today. A one-time non-refundable ₹5,000 setup fee applies. Your 1st month subscription is on us.</p>
             
+            <!-- 4-Way Billing Toggle -->
             <div class="d-flex justify-content-center mb-5">
                 <div class="btn-group cycle-group shadow-sm" role="group" aria-label="Billing Cycle">
                     <input type="radio" class="btn-check" name="billingCycle" id="btnMonthly" autocomplete="off" onchange="updatePricing('Monthly')" checked>
@@ -318,6 +337,7 @@
 
             <div class="row g-4 justify-content-center text-start">
                 
+                <!-- Basic Plan -->
                 <div class="col-lg-4 col-md-6">
                     <div class="pricing-card">
                         <h4 class="fw-bold text-center">Basic Plan</h4>
@@ -337,6 +357,7 @@
                     </div>
                 </div>
 
+                <!-- Premium Plan -->
                 <div class="col-lg-4 col-md-6">
                     <div class="pricing-card popular">
                         <div class="pricing-badge">Most Popular</div>
@@ -363,10 +384,11 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer text-center">
         <div class="container">
             <h4 class="fw-bold text-dark mb-3">
-                <img src="https://drive.google.com/uc?export=view&id=1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" height="30" class="me-2" alt="Opsify Lab Logo">Opsify Lab
+                <img src="https://lh3.googleusercontent.com/d/1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" height="30" class="me-2" alt="">Opsify Lab
             </h4>
             <p class="text-muted mb-4">Chennai, Tamil Nadu, India</p>
             <div class="d-flex justify-content-center gap-3 mb-4">
@@ -377,6 +399,7 @@
         </div>
     </footer>
 
+    <!-- ONBOARDING & TRUST+AUDIT REGISTRATION MODAL -->
     <div class="modal fade" id="onboardingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg">
@@ -386,6 +409,7 @@
                 </div>
                 <div class="modal-body p-4">
                     
+                    <!-- Step 1: Form -->
                     <div id="obStep1">
                         <form id="regForm" onsubmit="submitRegistration(event)">
                             <div class="mb-3">
@@ -415,10 +439,11 @@
                                 </div>
                             </div>
                             
+                            <!-- Mandatory Legal Checkbox -->
                             <div class="form-check mb-4 bg-light p-3 border rounded">
                                 <input class="form-check-input ms-1" type="checkbox" id="tosAgree" required style="transform: scale(1.2); margin-top: 0.3rem;">
                                 <label class="form-check-label small text-muted ms-2" for="tosAgree">
-                                    By clicking 'Register,' I agree to the Opsify Terms of Service, including the <strong>Single-User Access Policy</strong> and the <strong>Trust + Audit Payment Policy</strong>. I understand that my account is licensed for one user, and I agree that my access may be suspended if payment cannot be reconciled.
+                                    By clicking 'Register,' I agree to the Opsify <a href="#" data-bs-toggle="modal" data-bs-target="#tosModal">Terms of Service</a>, including the <a href="#" data-bs-toggle="modal" data-bs-target="#singleUserModal">Single-User Access Policy</a> and the <a href="#" data-bs-toggle="modal" data-bs-target="#trustAuditModal">Trust + Audit Payment Policy</a>. I understand that my account is licensed for one user, and I agree that my access may be suspended if payment cannot be reconciled.
                                 </label>
                             </div>
                             
@@ -428,14 +453,22 @@
                         </form>
                     </div>
 
+                    <!-- Step 2: Payment & UTR (Hidden Initially) -->
                     <div id="obStep2" class="d-none text-center">
-                        <div class="alert alert-info border fw-bold small text-start mb-4">
+                        <div class="alert alert-info border fw-bold small text-start mb-3">
                             <i class="bi bi-info-circle-fill me-2"></i>Please scan the QR code below using any UPI app to pay the ₹5,000 Setup Fee. Once paid, enter the 12-digit UTR below.
                         </div>
                         <h4 class="fw-bold text-primary mb-3">₹ 5,000.00</h4>
-                        <div class="bg-light border p-3 rounded mb-4 d-inline-block">
+                        <div class="bg-light border p-3 rounded mb-3 d-inline-block">
                             <div id="qrCodeContainer"></div>
                         </div>
+                        
+                        <!-- Added Proprietary Compliance Note -->
+                        <div class="alert alert-warning small text-start mb-4 border-0" style="background-color: #fff8e6;">
+                            <strong>📋 Payment Compliance Note</strong><br>
+                            Opsify Lab is a proprietary software brand owned and operated by <strong>Taha Kanchwala</strong>. In strict accordance with the Ministry of MSME and GST council guidelines for businesses operating below the statutory registration threshold, all financial settlements are securely routed directly to the proprietor's verified account. Your automated invoice will perfectly reflect this corporate structure for your accounting and tax records.
+                        </div>
+
                         <form onsubmit="submitUTR(event)">
                             <div class="form-floating mb-4">
                                 <input type="text" id="utrNumber" class="form-control text-center fw-bold fs-5" placeholder="12-Digit UTR" required minlength="10" maxlength="15">
@@ -447,6 +480,7 @@
                         </form>
                     </div>
 
+                    <!-- Step 3: Success (Hidden Initially) -->
                     <div id="obStep3" class="d-none text-center py-4">
                         <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
                         <h4 class="fw-bold text-dark mt-3">Account Provisioned!</h4>
@@ -456,6 +490,73 @@
                     
                     <div id="obError" class="alert alert-danger mt-3 d-none small fw-bold"></div>
 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TERMS MODALS -->
+    
+    <!-- Terms of Service Modal -->
+    <div class="modal fade" id="tosModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Terms of Service</h5>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#onboardingModal"></button>
+                </div>
+                <div class="modal-body small text-muted">
+                    <p><strong>1. Acceptance of Terms:</strong> By accessing and using Opsify Lab's services, you agree to be bound by these Terms of Service. If you do not agree to all the terms, please do not use the service.</p>
+                    <p><strong>2. Description of Service:</strong> Opsify Lab provides a cloud-based ERP software solution for supply chain management. The service includes tools for quotation generation, inventory tracking, and client management.</p>
+                    <p><strong>3. User Responsibilities:</strong> You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to use the service only for lawful purposes.</p>
+                    <p><strong>4. Data Privacy:</strong> We employ industry-standard security measures to protect your data. We do not sell your personal or business data to third parties.</p>
+                    <p><strong>5. Limitation of Liability:</strong> Opsify Lab shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the service.</p>
+                    <p><strong>6. Modifications:</strong> Opsify Lab reserves the right to modify these terms at any time. Continued use of the service constitutes acceptance of modified terms.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#onboardingModal">I Understand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single-User Access Policy Modal -->
+    <div class="modal fade" id="singleUserModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Single-User Access Policy</h5>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#onboardingModal"></button>
+                </div>
+                <div class="modal-body small text-muted">
+                    <p><strong>1. License Grant:</strong> Opsify Lab grants you a limited, non-exclusive, non-transferable license to access and use the software for your internal business operations.</p>
+                    <p><strong>2. Single Concurrent User:</strong> This license explicitly restricts access to a single concurrent user per instance. Account sharing or simultaneous logins using the same credentials across multiple devices or locations is strictly prohibited.</p>
+                    <p><strong>3. Security Verification:</strong> Our systems monitor session activity to prevent unauthorized multi-user access. Detection of simultaneous logins may result in forced session termination or temporary account suspension to protect the integrity of your data.</p>
+                    <p><strong>4. Account Upgrades:</strong> If your business requires multiple team members to access the system simultaneously, please contact our sales team to discuss custom multi-user enterprise plans.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#onboardingModal">I Understand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trust + Audit Payment Policy Modal -->
+    <div class="modal fade" id="trustAuditModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Trust + Audit Payment Policy</h5>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#onboardingModal"></button>
+                </div>
+                <div class="modal-body small text-muted">
+                    <p><strong>1. The Trust Protocol:</strong> To streamline your onboarding experience, Opsify Lab operates on a "Trust First" basis. Upon submission of your setup fee UTR (Unique Transaction Reference) number, your dedicated ERP database is immediately provisioned and login credentials are issued.</p>
+                    <p><strong>2. The Audit Protocol:</strong> All submitted UTR numbers and payment transactions are subject to a manual backend audit by our finance team within 24-48 hours. During this period, your account state is set to "Payment Verification," which allows you to log in but restricts operational usage.</p>
+                    <p><strong>3. Account Activation:</strong> Once the payment is successfully reconciled against our bank records, your account is fully activated, and an automated PDF invoice is dispatched to your registered email.</p>
+                    <p><strong>4. Discrepancies & Suspension:</strong> In the event that a UTR is found to be invalid, fraudulent, or the funds fail to settle, Opsify Lab reserves the right to immediately suspend or permanently terminate access to the provisioned instance without prior notice.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#onboardingModal">I Understand</button>
                 </div>
             </div>
         </div>
