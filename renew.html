@@ -5,22 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Opsify Lab | Subscription Renewal</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="https://lh3.googleusercontent.com/d/1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" type="image/png">
     
-    <!-- Bootstrap 5 & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
-    <!-- QR Code Generator -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
     <style>
-        :root {
-            --brand-primary: #0d6efd;
-            --brand-dark: #1e2227;
-            --brand-bg: #f4f6f9;
-        }
+        :root { --brand-primary: #0d6efd; --brand-dark: #1e2227; --brand-bg: #f4f6f9; }
         body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--brand-bg); color: #333; }
         .navbar { background-color: white; border-bottom: 1px solid #e9ecef; }
         .navbar-brand { font-weight: 800; font-size: 1.5rem; color: var(--brand-dark) !important; letter-spacing: -0.5px; }
@@ -43,7 +36,6 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar py-3 shadow-sm">
         <div class="container d-flex justify-content-center">
             <a class="navbar-brand d-flex align-items-center m-0" href="index.html">
@@ -54,7 +46,7 @@
 
     <div class="container renewal-container">
         
-        <!-- Error State (If no Client ID in URL) -->
+        <!-- Error State -->
         <div id="errorState" class="step-card text-center d-none">
             <i class="bi bi-exclamation-triangle-fill text-danger" style="font-size: 4rem;"></i>
             <h3 class="fw-bold mt-3">Invalid Tracking Link</h3>
@@ -62,13 +54,12 @@
             <a href="index.html" class="btn btn-outline-primary fw-bold mt-3">Return Home</a>
         </div>
 
-        <!-- STEP 1: Select Plan & Cycle -->
+        <!-- STEP 1: Select Plan -->
         <div id="step1" class="step-card text-center d-none">
             <div class="mb-2"><span class="badge bg-primary px-3 py-2 fs-6 rounded-pill" id="lblClientId">CLIENT-XXX</span></div>
             <h2 class="fw-bold mb-3">Renew Your Subscription</h2>
             <p class="text-muted mb-5">Select your preferred billing cycle and tier. You can upgrade or downgrade at any time.</p>
             
-            <!-- 4-Way Billing Toggle -->
             <div class="d-flex justify-content-center mb-5">
                 <div class="btn-group cycle-group shadow-sm" role="group">
                     <input type="radio" class="btn-check" name="billingCycle" id="btnMonthly" autocomplete="off" onchange="updatePricing('Monthly')" checked>
@@ -86,7 +77,6 @@
             </div>
 
             <div class="row g-4 justify-content-center">
-                <!-- Basic Plan -->
                 <div class="col-md-6">
                     <div class="pricing-card">
                         <h4 class="fw-bold text-dark">Basic Plan</h4>
@@ -97,7 +87,6 @@
                     </div>
                 </div>
 
-                <!-- Premium Plan -->
                 <div class="col-md-6">
                     <div class="pricing-card premium">
                         <div class="position-absolute top-0 start-50 translate-middle badge bg-primary rounded-pill px-3 py-1">RECOMMENDED</div>
@@ -126,7 +115,6 @@
                 <div id="qrCodeContainer"></div>
             </div>
             
-            <!-- Proprietary Compliance Note -->
             <div class="alert alert-warning small text-start mb-4 border-0" style="background-color: #fff8e6;">
                 <strong>📋 Payment Compliance Note</strong><br>
                 Opsify Lab is a proprietary software brand owned and operated by <strong>Taha Kanchwala</strong>. In strict accordance with the Ministry of MSME and GST council guidelines for businesses operating below the statutory registration threshold, all financial settlements are securely routed directly to the proprietor's verified account.
@@ -151,9 +139,13 @@
         <!-- STEP 3: Success -->
         <div id="step3" class="step-card text-center d-none py-5">
             <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
-            <h2 class="fw-bold text-dark mt-4">Subscription Renewed!</h2>
-            <p class="text-muted mb-4 fs-5">Your payment has been mapped and your Opsify ERP instance has been successfully unlocked.</p>
-            <p class="small text-muted mb-4">Your automated tax receipt has been dispatched to your registered billing email.</p>
+            <h2 class="fw-bold text-dark mt-4">Renewal Submitted!</h2>
+            <p class="text-muted mb-4 fs-5">Your Opsify ERP instance has been instantly activated so you can continue your operations.</p>
+            
+            <div class="alert alert-warning border-0 small text-start mx-auto mb-4" style="max-width: 500px; background-color: #fff8e6; color: #856404; border-left: 4px solid #ffc107 !important;">
+                <strong>Please note:</strong> Your payment is subject to manual verification. You will receive your official tax invoice once our finance team confirms the transaction.
+            </div>
+
             <a href="https://erp.opsifylab.com" class="btn btn-primary fw-bold px-5 py-3 fs-5 shadow-sm">Go to Dashboard</a>
         </div>
 
@@ -161,7 +153,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Update this URL to match your newly deployed Google Apps Script URL
         const API_URL = "https://script.google.com/macros/s/AKfycbw3DYbWlHs5IL1rH3OBDAMl3M_G1p33D51bQgRElynEIzVz3KWtDiw9LitjU1KBd0I-BQ/exec";
         
         let urlParams = new URLSearchParams(window.location.search);
@@ -197,18 +188,15 @@
         function proceedToPayment(tier) {
             activeTier = tier;
             
-            // Fetch the exact numeric amount based on the selected tier and cycle
             let dataAttr = activeCycle.toLowerCase().replace(' ', '');
             let targetCard = tier === 'Premium' ? document.querySelector('.pricing-card.premium .price-amt') : document.querySelector('.pricing-card:not(.premium) .price-amt');
             activeAmount = parseInt(targetCard.getAttribute('data-' + dataAttr));
 
-            // Update UI Labels
             document.getElementById('lblSelectedTier').innerText = activeTier;
             document.getElementById('lblSelectedCycle').innerText = activeCycle;
             document.getElementById('lblFinalAmount').innerText = activeAmount.toLocaleString('en-IN') + ".00";
 
-            // Generate QR Code
-            document.getElementById('qrCodeContainer').innerHTML = ""; // Clear old QR
+            document.getElementById('qrCodeContainer').innerHTML = ""; 
             let todayStr = new Date().toISOString().split('T')[0];
             let transactionNote = encodeURIComponent(`Opsify Renewal ${activeClientId} ${todayStr}`);
             let upiLink = `upi://pay?pa=taha.kanchwala812-3@oksbi&pn=Opsify%20Lab&am=${activeAmount}.00&cu=INR&tn=${transactionNote}`;
@@ -222,7 +210,6 @@
                 correctLevel : QRCode.CorrectLevel.H
             });
 
-            // Switch Views
             document.getElementById('step1').classList.add('d-none');
             document.getElementById('step2').classList.remove('d-none');
         }
