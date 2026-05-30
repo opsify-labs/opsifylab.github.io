@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Opsify Lab | Subscription Renewal</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://lh3.googleusercontent.com/d/1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" type="image/png">
+    
+    <!-- Bootstrap 5 & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- QR Code Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <style>
+        :root {
+            --brand-primary: #0d6efd;
+            --brand-dark: #1e2227;
+            --brand-bg: #f4f6f9;
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--brand-bg); color: #333; }
+        .navbar { background-color: white; border-bottom: 1px solid #e9ecef; }
+        .navbar-brand { font-weight: 800; font-size: 1.5rem; color: var(--brand-dark) !important; letter-spacing: -0.5px; }
+        
+        .renewal-container { max-width: 900px; margin: 60px auto; }
+        .step-card { background: white; border-radius: 12px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e9ecef; }
+        
+        .pricing-card { border: 1px solid #e9ecef; border-radius: 8px; padding: 30px; text-align: center; height: 100%; transition: 0.3s; position: relative; }
+        .pricing-card.premium { border: 2px solid var(--brand-primary); box-shadow: 0 10px 25px rgba(13, 110, 253, 0.1); }
+        .price-val { font-size: 2.5rem; font-weight: 800; color: var(--brand-dark); margin: 15px 0; line-height: 1; }
+        
+        .cycle-group .btn { font-size: 0.9rem; padding: 10px 15px; }
+        .cycle-group .btn small { display: block; margin-top: 2px; }
+        
+        @media (max-width: 768px) {
+            .cycle-group { flex-direction: column; width: 100%; border-radius: 8px; overflow: hidden; }
+            .cycle-group .btn { border-radius: 0 !important; border: 1px solid #0d6efd; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar py-3 shadow-sm">
+        <div class="container d-flex justify-content-center">
+            <a class="navbar-brand d-flex align-items-center m-0" href="index.html">
+                <img src="https://lh3.googleusercontent.com/d/1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" height="35" class="me-2" alt=""> Opsify Lab
+            </a>
+        </div>
+    </nav>
+
+    <div class="container renewal-container">
+        
+        <!-- Error State (If no Client ID in URL) -->
+        <div id="errorState" class="step-card text-center d-none">
+            <i class="bi bi-exclamation-triangle-fill text-danger" style="font-size: 4rem;"></i>
+            <h3 class="fw-bold mt-3">Invalid Tracking Link</h3>
+            <p class="text-muted">We couldn't securely identify your account. Please click the exact renewal link provided in your email.</p>
+            <a href="index.html" class="btn btn-outline-primary fw-bold mt-3">Return Home</a>
+        </div>
+
+        <!-- STEP 1: Select Plan & Cycle -->
+        <div id="step1" class="step-card text-center d-none">
+            <div class="mb-2"><span class="badge bg-primary px-3 py-2 fs-6 rounded-pill" id="lblClientId">CLIENT-XXX</span></div>
+            <h2 class="fw-bold mb-3">Renew Your Subscription</h2>
+            <p class="text-muted mb-5">Select your preferred billing cycle and tier. You can upgrade or downgrade at any time.</p>
+            
+            <!-- 4-Way Billing Toggle -->
+            <div class="d-flex justify-content-center mb-5">
+                <div class="btn-group cycle-group shadow-sm" role="group">
+                    <input type="radio" class="btn-check" name="billingCycle" id="btnMonthly" autocomplete="off" onchange="updatePricing('Monthly')" checked>
+                    <label class="btn btn-outline-primary fw-bold" for="btnMonthly">Monthly<small class="text-transparent" style="opacity:0;">-</small></label>
+                  
+                    <input type="radio" class="btn-check" name="billingCycle" id="btnQuarterly" autocomplete="off" onchange="updatePricing('Quarterly')">
+                    <label class="btn btn-outline-primary fw-bold" for="btnQuarterly">Quarterly<small>SAVE 10%</small></label>
+                  
+                    <input type="radio" class="btn-check" name="billingCycle" id="btnHalf" autocomplete="off" onchange="updatePricing('Half Yearly')">
+                    <label class="btn btn-outline-primary fw-bold" for="btnHalf">Half Yearly<small>SAVE 15%</small></label>
+                  
+                    <input type="radio" class="btn-check" name="billingCycle" id="btnYearly" autocomplete="off" onchange="updatePricing('Yearly')">
+                    <label class="btn btn-outline-primary fw-bold" for="btnYearly">Yearly<small>SAVE 20%</small></label>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Basic Plan -->
+                <div class="col-md-6">
+                    <div class="pricing-card">
+                        <h4 class="fw-bold text-dark">Basic Plan</h4>
+                        <p class="text-muted small fw-bold">Internal Management Engine</p>
+                        <div class="price-val">₹<span class="price-amt" data-monthly="2000" data-quarterly="5400" data-halfyearly="10200" data-yearly="19200">2,000</span></div>
+                        <p class="text-muted small fw-bold mb-4 bill-cycle">Billed Monthly</p>
+                        <button class="btn btn-outline-primary w-100 fw-bold py-3" onclick="proceedToPayment('Basic')">Renew Basic Plan</button>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="col-md-6">
+                    <div class="pricing-card premium">
+                        <div class="position-absolute top-0 start-50 translate-middle badge bg-primary rounded-pill px-3 py-1">RECOMMENDED</div>
+                        <h4 class="fw-bold text-primary">Premium Plan</h4>
+                        <p class="text-muted small fw-bold">Client Experience & Automation</p>
+                        <div class="price-val text-primary">₹<span class="price-amt" data-monthly="2500" data-quarterly="6750" data-halfyearly="12750" data-yearly="24000">2,500</span></div>
+                        <p class="text-muted small fw-bold mb-4 bill-cycle">Billed Monthly</p>
+                        <button class="btn btn-primary w-100 fw-bold py-3 shadow-sm" onclick="proceedToPayment('Premium')">Renew Premium Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2: Payment & UTR -->
+        <div id="step2" class="step-card text-center d-none">
+            <h3 class="fw-bold mb-3">Secure Payment</h3>
+            <div class="alert alert-primary border-primary bg-primary bg-opacity-10 d-inline-block px-4 py-2 fw-bold mb-4">
+                Selected: <span id="lblSelectedTier" class="text-primary"></span> Plan (<span id="lblSelectedCycle"></span>)
+            </div>
+            
+            <p class="text-muted mb-4">Scan the QR code below using any UPI app to pay your subscription fee. Enter the 12-digit UTR below to instantly unlock your account.</p>
+            
+            <h2 class="fw-bold text-primary mb-3">₹ <span id="lblFinalAmount">0.00</span></h2>
+            
+            <div class="bg-light border p-3 rounded mb-3 d-inline-block">
+                <div id="qrCodeContainer"></div>
+            </div>
+            
+            <!-- Proprietary Compliance Note -->
+            <div class="alert alert-warning small text-start mb-4 border-0" style="background-color: #fff8e6;">
+                <strong>📋 Payment Compliance Note</strong><br>
+                Opsify Lab is a proprietary software brand owned and operated by <strong>Taha Kanchwala</strong>. In strict accordance with the Ministry of MSME and GST council guidelines for businesses operating below the statutory registration threshold, all financial settlements are securely routed directly to the proprietor's verified account.
+            </div>
+
+            <form onsubmit="submitRenewal(event)" class="text-start">
+                <div class="form-floating mb-4">
+                    <input type="text" id="utrNumber" class="form-control text-center fw-bold fs-5" placeholder="12-Digit UTR" required minlength="10" maxlength="15" autocomplete="off">
+                    <label for="utrNumber" class="text-muted text-center w-100">Enter 12-Digit UTR Number</label>
+                </div>
+                <button type="submit" id="btnSubmitRenewal" class="btn btn-success w-100 py-3 fw-bold shadow-sm fs-5">
+                    Verify & Unlock Account
+                </button>
+                <div class="text-center mt-3">
+                    <a href="javascript:void(0)" class="text-decoration-none text-muted small fw-bold" onclick="backToStep1()"><i class="bi bi-arrow-left me-1"></i> Change Plan</a>
+                </div>
+            </form>
+            
+            <div id="errorBox" class="alert alert-danger mt-4 d-none fw-bold small text-start"></div>
+        </div>
+
+        <!-- STEP 3: Success -->
+        <div id="step3" class="step-card text-center d-none py-5">
+            <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+            <h2 class="fw-bold text-dark mt-4">Subscription Renewed!</h2>
+            <p class="text-muted mb-4 fs-5">Your payment has been mapped and your Opsify ERP instance has been successfully unlocked.</p>
+            <p class="small text-muted mb-4">Your automated tax receipt has been dispatched to your registered billing email.</p>
+            <a href="https://erp.opsifylab.com" class="btn btn-primary fw-bold px-5 py-3 fs-5 shadow-sm">Go to Dashboard</a>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Update this URL to match your newly deployed Google Apps Script URL
+        const API_URL = "https://script.google.com/macros/s/AKfycbw3DYbWlHs5IL1rH3OBDAMl3M_G1p33D51bQgRElynEIzVz3KWtDiw9LitjU1KBd0I-BQ/exec";
+        
+        let urlParams = new URLSearchParams(window.location.search);
+        let activeClientId = urlParams.get('client');
+        let activeCycle = "Monthly";
+        let activeTier = "";
+        let activeAmount = 0;
+
+        window.onload = function() {
+            if (!activeClientId) {
+                document.getElementById('errorState').classList.remove('d-none');
+            } else {
+                document.getElementById('lblClientId').innerText = activeClientId.toUpperCase();
+                document.getElementById('step1').classList.remove('d-none');
+            }
+        };
+
+        function updatePricing(cycle) {
+            activeCycle = cycle;
+            const amounts = document.querySelectorAll('.price-amt');
+            const cycleTexts = document.querySelectorAll('.bill-cycle');
+            
+            let cycleLabel = "Monthly";
+            if(cycle === 'Quarterly') cycleLabel = "Quarterly (Every 3 Months)";
+            if(cycle === 'Half Yearly') cycleLabel = "Half-Yearly (Every 6 Months)";
+            if(cycle === 'Yearly') cycleLabel = "Annually";
+
+            let dataAttr = cycle.toLowerCase().replace(' ', '');
+            amounts.forEach(el => el.innerText = parseInt(el.getAttribute('data-' + dataAttr)).toLocaleString('en-IN'));
+            cycleTexts.forEach(el => el.innerText = 'Billed ' + cycleLabel);
+        }
+
+        function proceedToPayment(tier) {
+            activeTier = tier;
+            
+            // Fetch the exact numeric amount based on the selected tier and cycle
+            let dataAttr = activeCycle.toLowerCase().replace(' ', '');
+            let targetCard = tier === 'Premium' ? document.querySelector('.pricing-card.premium .price-amt') : document.querySelector('.pricing-card:not(.premium) .price-amt');
+            activeAmount = parseInt(targetCard.getAttribute('data-' + dataAttr));
+
+            // Update UI Labels
+            document.getElementById('lblSelectedTier').innerText = activeTier;
+            document.getElementById('lblSelectedCycle').innerText = activeCycle;
+            document.getElementById('lblFinalAmount').innerText = activeAmount.toLocaleString('en-IN') + ".00";
+
+            // Generate QR Code
+            document.getElementById('qrCodeContainer').innerHTML = ""; // Clear old QR
+            let todayStr = new Date().toISOString().split('T')[0];
+            let transactionNote = encodeURIComponent(`Opsify Renewal ${activeClientId} ${todayStr}`);
+            let upiLink = `upi://pay?pa=taha.kanchwala812-3@oksbi&pn=Opsify%20Lab&am=${activeAmount}.00&cu=INR&tn=${transactionNote}`;
+
+            new QRCode(document.getElementById("qrCodeContainer"), {
+                text: upiLink,
+                width: 220,
+                height: 220,
+                colorDark : "#1e2227",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+
+            // Switch Views
+            document.getElementById('step1').classList.add('d-none');
+            document.getElementById('step2').classList.remove('d-none');
+        }
+
+        function backToStep1() {
+            document.getElementById('step2').classList.add('d-none');
+            document.getElementById('step1').classList.remove('d-none');
+            document.getElementById('errorBox').classList.add('d-none');
+            document.getElementById('utrNumber').value = "";
+        }
+
+        async function submitRenewal(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btnSubmitRenewal');
+            const errBox = document.getElementById('errorBox');
+            
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Verifying Payment...';
+            btn.disabled = true;
+            errBox.classList.add('d-none');
+
+            const payload = {
+                action: 'submitRenewal',
+                clientId: activeClientId,
+                tier: activeTier,
+                billingCycle: activeCycle,
+                utr: document.getElementById('utrNumber').value.trim()
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const res = await response.json();
+                
+                if (res.success) {
+                    document.getElementById('step2').classList.add('d-none');
+                    document.getElementById('step3').classList.remove('d-none');
+                } else {
+                    throw new Error(res.error || "Failed to verify renewal.");
+                }
+            } catch (err) {
+                errBox.innerText = err.message;
+                errBox.classList.remove('d-none');
+                btn.innerHTML = 'Verify & Unlock Account';
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
