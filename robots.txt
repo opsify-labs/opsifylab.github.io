@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /track.html  # Keeps client tracking data out of public search results
+
+Sitemap: https://opsifylab.com/sitemap.xml
