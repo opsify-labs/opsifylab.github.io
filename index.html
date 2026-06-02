@@ -134,10 +134,8 @@
                     <div style="width:12px; height:12px; border-radius:50%; background:#27c93f; margin-left:8px;"></div>
                 </div>
                 
-                <!-- Pure HTML/CSS ERP Dashboard Mockup -->
                 <div class="d-flex text-start user-select-none" style="height: 450px; filter: grayscale(100%) opacity(0.85); background: var(--brand-bg); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; overflow: hidden;">
                     
-                    <!-- Mockup Sidebar -->
                     <div style="width: 220px; background: #1e2227; padding-top: 25px; flex-shrink: 0;">
                         <div class="mx-auto mb-4" style="width: 120px; height: 18px; background: rgba(255,255,255,0.2); border-radius: 4px;"></div>
                         <div style="padding: 12px 20px; background: #0d6efd; border-left: 4px solid #fff; margin-bottom: 2px; display: flex; align-items: center;">
@@ -162,15 +160,12 @@
                         </div>
                     </div>
                     
-                    <!-- Mockup Content Area -->
                     <div class="flex-grow-1 d-flex flex-column">
-                        <!-- Mockup Topbar -->
                         <div class="bg-white px-4 py-3 border-bottom d-flex justify-content-between align-items-center shadow-sm">
                             <div style="width: 100px; height: 16px; background: #e9ecef; border-radius: 4px;"></div>
                             <div style="width: 32px; height: 32px; background: #e9ecef; border-radius: 50%;"></div>
                         </div>
                         
-                        <!-- Mockup Dashboard -->
                         <div class="p-4 flex-grow-1">
                             <div class="row g-3 mb-4">
                                 <div class="col-3">
@@ -422,47 +417,74 @@
 
             <div class="row g-4 justify-content-center text-start">
                 
-                <div class="col-lg-4 col-md-6">
+                <!-- Basic Single -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="pricing-card">
-                        <h4 class="fw-bold text-center">Basic Plan</h4>
-                        <p class="text-muted small fw-bold text-center">Internal Management Engine</p>
+                        <h4 class="fw-bold text-center">Basic<br><small class="text-muted fs-6">Single User</small></h4>
                         <div class="text-center mt-3"><span class="badge bg-success bg-opacity-10 text-success fw-bold px-3 py-1 rounded-pill">1st Month Free</span></div>
-                        <div class="price-val text-center">₹<span class="price-amt" data-monthly="2,000" data-quarterly="5,400" data-halfyearly="10,200" data-yearly="19,200">2,000</span></div>
+                        <div class="price-val text-center">₹<span class="price-amt" data-monthly="2000" data-quarterly="5400" data-halfyearly="10200" data-yearly="19200">2,000</span></div>
                         <p class="text-muted small fw-bold mb-4 bill-cycle text-center">Billed Monthly</p>
-                        
-                        <button class="btn btn-outline-primary w-100 fw-bold py-2 mb-4" onclick="openOnboarding('Basic')">Select Basic Plan</button>
-                        
+                        <button class="btn btn-outline-primary w-100 fw-bold py-2 mb-4" onclick="openOnboarding('Basic - Single User')">Select Basic (Single)</button>
                         <ul class="feature-list">
+                            <li><i class="bi bi-person-fill"></i> 1 Concurrent User</li>
                             <li><i class="bi bi-check-circle-fill"></i> Unlimited Operational Records</li>
                             <li><i class="bi bi-check-circle-fill"></i> Full ERP Pipeline (Quote to Cash)</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Client CRM Directory</li>
                             <li><i class="bi bi-check-circle-fill"></i> Standard PDF Generator</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card popular">
-                        <div class="pricing-badge">Most Popular</div>
-                        <h4 class="fw-bold text-primary text-center">Premium Plan</h4>
-                        <p class="text-muted small fw-bold text-center">Client Experience & Automation</p>
+                <!-- Basic Multi -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <h4 class="fw-bold text-center">Basic<br><small class="text-muted fs-6">Multi User</small></h4>
                         <div class="text-center mt-3"><span class="badge bg-success bg-opacity-10 text-success fw-bold px-3 py-1 rounded-pill">1st Month Free</span></div>
-                        <div class="price-val text-primary text-center">₹<span class="price-amt" data-monthly="2,500" data-quarterly="6,750" data-halfyearly="12,750" data-yearly="24,000">2,500</span></div>
+                        <div class="price-val text-center">₹<span class="price-amt" data-tier="Basic - Multi User" data-monthly="2500" data-quarterly="6750" data-halfyearly="12750" data-yearly="24000">2,500</span></div>
                         <p class="text-muted small fw-bold mb-4 bill-cycle text-center">Billed Monthly</p>
-                        
-                        <button class="btn btn-primary-custom w-100 fw-bold py-2 mb-4" onclick="openOnboarding('Premium')">Select Premium Plan</button>
-                        
+                        <button class="btn btn-outline-primary w-100 fw-bold py-2 mb-4" onclick="openOnboarding('Basic - Multi User')">Select Basic (Multi)</button>
                         <ul class="feature-list">
-                            <li><i class="bi bi-check-circle-fill"></i> <strong>Everything in Basic</strong></li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> <strong>Live Customer Tracking Portal</strong></li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Custom Prefix & Suffix Configurations</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Scheduled Email Summary Reports</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Custom PDF Branding Colors</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Smart Status Message Generator</li>
+                            <li><i class="bi bi-people-fill text-primary"></i> <strong>Unlimited Users</strong></li>
+                            <li><i class="bi bi-check-circle-fill"></i> Unlimited Operational Records</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Full ERP Pipeline (Quote to Cash)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Standard PDF Generator</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Premium Single -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="pricing-card popular">
+                        <div class="pricing-badge">Recommended</div>
+                        <h4 class="fw-bold text-primary text-center">Premium<br><small class="text-muted fs-6">Single User</small></h4>
+                        <div class="text-center mt-3"><span class="badge bg-success bg-opacity-10 text-success fw-bold px-3 py-1 rounded-pill">1st Month Free</span></div>
+                        <div class="price-val text-primary text-center">₹<span class="price-amt" data-monthly="2500" data-quarterly="6750" data-halfyearly="12750" data-yearly="24000">2,500</span></div>
+                        <p class="text-muted small fw-bold mb-4 bill-cycle text-center">Billed Monthly</p>
+                        <button class="btn btn-primary-custom w-100 fw-bold py-2 mb-4" onclick="openOnboarding('Premium - Single User')">Select Premium (Single)</button>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-person-fill"></i> 1 Concurrent User</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> <strong>Live Client Tracking Portal</strong></li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Scheduled Email Reports</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Custom PDF Branding Colors</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Premium Multi -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="pricing-card premium" style="border: 2px solid #0d6efd;">
+                        <h4 class="fw-bold text-primary text-center">Premium<br><small class="text-muted fs-6">Multi User</small></h4>
+                        <div class="text-center mt-3"><span class="badge bg-success bg-opacity-10 text-success fw-bold px-3 py-1 rounded-pill">1st Month Free</span></div>
+                        <div class="price-val text-primary text-center">₹<span class="price-amt" data-tier="Premium - Multi User" data-monthly="3000" data-quarterly="8100" data-halfyearly="15300" data-yearly="28800">3,000</span></div>
+                        <p class="text-muted small fw-bold mb-4 bill-cycle text-center">Billed Monthly</p>
+                        <button class="btn btn-primary-custom w-100 fw-bold py-2 mb-4" onclick="openOnboarding('Premium - Multi User')">Select Premium (Multi)</button>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-people-fill text-primary"></i> <strong>Unlimited Users</strong></li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> <strong>Live Client Tracking Portal</strong></li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Scheduled Email Reports</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Custom PDF Branding Colors</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -504,8 +526,10 @@
                                 <div class="col-6">
                                     <label class="form-label small fw-bold text-secondary">SELECTED TIER</label>
                                     <select id="regTier" class="form-select bg-light fw-bold text-primary">
-                                        <option value="Basic">Basic Plan</option>
-                                        <option value="Premium">Premium Plan</option>
+                                        <option value="Basic - Single User">Basic - Single User</option>
+                                        <option value="Basic - Multi User">Basic - Multi User</option>
+                                        <option value="Premium - Single User">Premium - Single User</option>
+                                        <option value="Premium - Multi User">Premium - Multi User</option>
                                         <option value="Demo" class="d-none">Demo Sandbox</option>
                                     </select>
                                 </div>
@@ -523,7 +547,7 @@
                             <div class="form-check mb-4 bg-light p-3 border rounded">
                                 <input class="form-check-input ms-1" type="checkbox" id="tosAgree" required style="transform: scale(1.2); margin-top: 0.3rem;">
                                 <label class="form-check-label small text-muted ms-2" for="tosAgree">
-                                    By clicking 'Register,' I agree to the Opsify <a href="#" data-bs-toggle="modal" data-bs-target="#tosModal">Terms of Service</a>, including the <a href="#" data-bs-toggle="modal" data-bs-target="#singleUserModal">Single-User Access Policy</a> and the <a href="#" data-bs-toggle="modal" data-bs-target="#trustAuditModal">Trust + Audit Payment Policy</a>. I understand that my account is licensed for one user, and I agree that my access may be suspended if payment cannot be reconciled.
+                                    By clicking 'Register,' I agree to the Opsify <a href="#" data-bs-toggle="modal" data-bs-target="#tosModal">Terms of Service</a>, including the <a href="#" data-bs-toggle="modal" data-bs-target="#accessPolicyModal">Account Access Policy</a> and the <a href="#" data-bs-toggle="modal" data-bs-target="#trustAuditModal">Trust + Audit Payment Policy</a>. I understand my concurrent access limits depend on my selected tier, and I agree that my access may be suspended if payment cannot be reconciled.
                                 </label>
                             </div>
                             
@@ -594,18 +618,18 @@
         </div>
     </div>
 
-    <div class="modal fade" id="singleUserModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="accessPolicyModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title fw-bold">Single-User Access Policy</h5>
+                    <h5 class="modal-title fw-bold">Account Access Policy</h5>
                     <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#onboardingModal"></button>
                 </div>
                 <div class="modal-body small text-muted">
                     <p><strong>1. License Grant:</strong> Opsify Lab grants you a limited, non-exclusive, non-transferable license to access and use the software for your internal business operations.</p>
-                    <p><strong>2. Single Concurrent User:</strong> This license explicitly restricts access to a single concurrent user per instance. Account sharing or simultaneous logins using the same credentials across multiple devices or locations is strictly prohibited.</p>
-                    <p><strong>3. Security Verification:</strong> Our systems monitor session activity to prevent unauthorized multi-user access. Detection of simultaneous logins may result in forced session termination or temporary account suspension to protect the integrity of your data.</p>
-                    <p><strong>4. Account Upgrades:</strong> If your business requires multiple team members to access the system simultaneously, please contact our sales team to discuss custom multi-user enterprise plans.</p>
+                    <p><strong>2. Single-User Tiers:</strong> If subscribed to a Single-User tier, access is explicitly restricted to a single concurrent session. Simultaneous logins using the same credentials across multiple devices or locations will result in automatic session termination of prior logins.</p>
+                    <p><strong>3. Multi-User Tiers:</strong> If subscribed to a Multi-User tier, your account supports unlimited concurrent sessions for your team members sharing the database.</p>
+                    <p><strong>4. Security Enforcement:</strong> Our systems actively monitor session tokens. Bypassing or attempting to manipulate session state is a violation of our terms and may result in temporary account suspension to protect the integrity of your data.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#onboardingModal">I Understand</button>
@@ -662,7 +686,7 @@
             if(cycle === 'Yearly') cycleLabel = "Annually";
 
             let dataAttr = cycle.toLowerCase().replace(' ', '');
-            amounts.forEach(el => el.innerText = el.getAttribute('data-' + dataAttr));
+            amounts.forEach(el => el.innerText = parseInt(el.getAttribute('data-' + dataAttr)).toLocaleString('en-IN'));
             cycleTexts.forEach(el => el.innerText = 'Billed ' + cycleLabel);
         }
 
@@ -671,7 +695,13 @@
         
         function openOnboarding(tier) {
             isDemoMode = false;
-            document.getElementById('regTier').value = tier;
+            
+            // Map the legacy button clicks to the new Single User defaults
+            let targetTier = tier;
+            if (tier === 'Basic') targetTier = 'Basic - Single User';
+            if (tier === 'Premium') targetTier = 'Premium - Single User';
+            
+            document.getElementById('regTier').value = targetTier;
             document.getElementById('regCycle').value = currentBillingCycle;
             document.getElementById('billingOptionsRow').classList.remove('d-none');
             document.getElementById('btnRegister').innerText = 'Register & Pay ₹5,000 Setup Fee';
