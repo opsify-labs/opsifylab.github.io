@@ -77,24 +77,48 @@
             </div>
 
             <div class="row g-4 justify-content-center">
+                <!-- Basic Single User -->
                 <div class="col-md-6">
                     <div class="pricing-card">
-                        <h4 class="fw-bold text-dark">Basic Plan</h4>
-                        <p class="text-muted small fw-bold">Internal Management Engine</p>
-                        <div class="price-val">₹<span class="price-amt" data-monthly="2000" data-quarterly="5400" data-halfyearly="10200" data-yearly="19200">2,000</span></div>
+                        <h4 class="fw-bold text-dark">Basic - Single User</h4>
+                        <p class="text-muted small fw-bold">Internal Management Engine (1 User)</p>
+                        <div class="price-val">₹<span class="price-amt" data-tier="Basic - Single User" data-monthly="2000" data-quarterly="5400" data-halfyearly="10200" data-yearly="19200">2,000</span></div>
                         <p class="text-muted small fw-bold mb-4 bill-cycle">Billed Monthly</p>
-                        <button class="btn btn-outline-primary w-100 fw-bold py-3" onclick="proceedToPayment('Basic')">Renew Basic Plan</button>
+                        <button class="btn btn-outline-primary w-100 fw-bold py-3" onclick="proceedToPayment('Basic - Single User')">Renew Basic (Single)</button>
                     </div>
                 </div>
 
+                <!-- Basic Multi User -->
+                <div class="col-md-6">
+                    <div class="pricing-card">
+                        <h4 class="fw-bold text-dark">Basic - Multi User</h4>
+                        <p class="text-muted small fw-bold">Internal Management Engine (Unlimited Users)</p>
+                        <div class="price-val">₹<span class="price-amt" data-tier="Basic - Multi User" data-monthly="2500" data-quarterly="6750" data-halfyearly="12750" data-yearly="24000">2,500</span></div>
+                        <p class="text-muted small fw-bold mb-4 bill-cycle">Billed Monthly</p>
+                        <button class="btn btn-outline-primary w-100 fw-bold py-3" onclick="proceedToPayment('Basic - Multi User')">Renew Basic (Multi)</button>
+                    </div>
+                </div>
+
+                <!-- Premium Single User -->
+                <div class="col-md-6">
+                    <div class="pricing-card premium">
+                        <h4 class="fw-bold text-primary">Premium - Single User</h4>
+                        <p class="text-muted small fw-bold">Client Experience & Automation (1 User)</p>
+                        <div class="price-val text-primary">₹<span class="price-amt" data-tier="Premium - Single User" data-monthly="2500" data-quarterly="6750" data-halfyearly="12750" data-yearly="24000">2,500</span></div>
+                        <p class="text-muted small fw-bold mb-4 bill-cycle">Billed Monthly</p>
+                        <button class="btn btn-primary w-100 fw-bold py-3 shadow-sm" onclick="proceedToPayment('Premium - Single User')">Renew Premium (Single)</button>
+                    </div>
+                </div>
+
+                <!-- Premium Multi User -->
                 <div class="col-md-6">
                     <div class="pricing-card premium">
                         <div class="position-absolute top-0 start-50 translate-middle badge bg-primary rounded-pill px-3 py-1">RECOMMENDED</div>
-                        <h4 class="fw-bold text-primary">Premium Plan</h4>
-                        <p class="text-muted small fw-bold">Client Experience & Automation</p>
-                        <div class="price-val text-primary">₹<span class="price-amt" data-monthly="2500" data-quarterly="6750" data-halfyearly="12750" data-yearly="24000">2,500</span></div>
+                        <h4 class="fw-bold text-primary">Premium - Multi User</h4>
+                        <p class="text-muted small fw-bold">Client Experience & Automation (Unlimited Users)</p>
+                        <div class="price-val text-primary">₹<span class="price-amt" data-tier="Premium - Multi User" data-monthly="3000" data-quarterly="8100" data-halfyearly="15300" data-yearly="28800">3,000</span></div>
                         <p class="text-muted small fw-bold mb-4 bill-cycle">Billed Monthly</p>
-                        <button class="btn btn-primary w-100 fw-bold py-3 shadow-sm" onclick="proceedToPayment('Premium')">Renew Premium Plan</button>
+                        <button class="btn btn-primary w-100 fw-bold py-3 shadow-sm" onclick="proceedToPayment('Premium - Multi User')">Renew Premium (Multi)</button>
                     </div>
                 </div>
             </div>
@@ -189,7 +213,7 @@
             activeTier = tier;
             
             let dataAttr = activeCycle.toLowerCase().replace(' ', '');
-            let targetCard = tier === 'Premium' ? document.querySelector('.pricing-card.premium .price-amt') : document.querySelector('.pricing-card:not(.premium) .price-amt');
+            let targetCard = document.querySelector(`.price-amt[data-tier="${tier}"]`);
             activeAmount = parseInt(targetCard.getAttribute('data-' + dataAttr));
 
             document.getElementById('lblSelectedTier').innerText = activeTier;
