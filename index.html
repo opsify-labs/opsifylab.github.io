@@ -6,14 +6,11 @@
     <title>Opsify Lab | The Operating System for Modern Supply Businesses</title>
     <meta name="description" content="Manage your entire pipeline from the first enquiry to the final payment. Generate instant PDFs, track dispatches, and give clients real-time visibility.">
     
-    <!-- Favicon -->
     <link rel="icon" href="https://lh3.googleusercontent.com/d/1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" type="image/png">
     
-    <!-- Bootstrap 5 & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
-    <!-- QR Code Generator -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
     <style>
@@ -100,11 +97,9 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <!-- Fixed Image Rendering and removed duplicate alt text -->
                 <img src="https://lh3.googleusercontent.com/d/1Hh01_wVU11aI7aJOSabTCnoZ_0gc_tcP" height="35" class="me-2" alt=""> Opsify Lab
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -123,38 +118,33 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="container mt-5">
             <h1 class="hero-title">The Operating System for<br><span class="text-primary">Modern Supply Businesses</span></h1>
             <p class="hero-subtitle">Manage your entire pipeline from the first enquiry to the final payment. Generate instant PDFs, track dispatches, and give your clients real-time visibility.</p>
             <div class="d-flex justify-content-center gap-3 mb-5 pb-4">
                 <a href="#pricing" class="btn btn-primary-custom btn-lg"><i class="bi bi-rocket-takeoff me-2"></i>View Pricing</a>
-                <a href="mailto:admin@opsifylab.com?subject=Opsify%20ERP%20-%20Demo%20Request&body=Hi%20Opsify%20Team%2C%0A%0AI%20would%20like%20to%20schedule%20a%20demo%20of%20the%20Opsify%20ERP%20system.%0A%0AMy%20Company%3A%20%0AMy%20Phone%3A%20%0A%0AThanks!" class="btn btn-ghost-custom btn-lg">Book a Demo</a>
+                <button onclick="openDemoOnboarding()" class="btn btn-ghost-custom btn-lg">Get a Demo Account</button>
             </div>
             
-            <!-- Dashboard Mockup Abstract -->
             <div class="hero-mockup p-0">
                 <div class="bg-light p-2 border-bottom d-flex align-items-center">
                     <div style="width:12px; height:12px; border-radius:50%; background:#ff5f56; margin-left:10px;"></div>
                     <div style="width:12px; height:12px; border-radius:50%; background:#ffbd2e; margin-left:8px;"></div>
                     <div style="width:12px; height:12px; border-radius:50%; background:#27c93f; margin-left:8px;"></div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" alt="Dashboard Abstract" class="img-fluid opacity-50" style="filter: grayscale(100%);">
+                <img src="dashboard-mockup.png" alt="Opsify ERP Dashboard Screenshot" class="img-fluid opacity-75" style="filter: grayscale(100%); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; width: 100%;">
             </div>
         </div>
     </section>
 
-    <!-- TRUST BANNER -->
     <div class="py-4 border-bottom bg-white text-center">
         <p class="text-muted fw-bold text-uppercase small m-0 letter-spacing-1">Trusted by fast-growing trading and industrial supply agencies</p>
     </div>
 
-    <!-- PIPELINE FEATURES -->
     <section id="features" class="feature-section bg-white">
         <div class="container">
             
-            <!-- Block A: CRM & Sales -->
             <div class="row align-items-center feature-block">
                 <div class="col-lg-5 order-2 order-lg-1 mt-4 mt-lg-0">
                     <div class="feature-icon-wrapper"><i class="bi bi-people-fill"></i></div>
@@ -177,7 +167,6 @@
                 </div>
             </div>
 
-            <!-- Block B: Commercials -->
             <div class="row align-items-center feature-block">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="feature-img-box">
@@ -200,7 +189,6 @@
                 </div>
             </div>
 
-            <!-- Block C: Fulfillment -->
             <div class="row align-items-center feature-block">
                 <div class="col-lg-5 order-2 order-lg-1 mt-4 mt-lg-0">
                     <div class="feature-icon-wrapper bg-warning bg-opacity-10 text-warning"><i class="bi bi-truck"></i></div>
@@ -229,7 +217,6 @@
         </div>
     </section>
 
-    <!-- TRACKING PORTAL HIGHLIGHT WITH MOCK CAROUSEL -->
     <section id="tracking" class="tracking-section text-center">
         <div class="container">
             <div class="row align-items-center">
@@ -241,11 +228,9 @@
                 </div>
                 <div class="col-lg-5 offset-lg-1">
                     
-                    <!-- Tracker Carousel -->
                     <div id="trackingCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                         <div class="carousel-inner">
                             
-                            <!-- Slide 1: Pending -->
                             <div class="carousel-item active">
                                 <div class="tracking-card">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -262,7 +247,6 @@
                                 </div>
                             </div>
 
-                            <!-- Slide 2: Partially Supplied -->
                             <div class="carousel-item">
                                 <div class="tracking-card">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -279,7 +263,6 @@
                                 </div>
                             </div>
 
-                            <!-- Slide 3: Complete -->
                             <div class="carousel-item">
                                 <div class="tracking-card">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -308,13 +291,11 @@
         </div>
     </section>
 
-    <!-- PRICING SECTION -->
     <section id="pricing" class="pricing-section text-center">
         <div class="container">
             <h2 class="fw-bold mb-3">Simple, Scalable Pricing</h2>
             <p class="text-muted mb-5">Secure your instance today. A one-time non-refundable ₹5,000 setup fee applies. Your 1st month subscription is on us.</p>
             
-            <!-- 4-Way Billing Toggle -->
             <div class="d-flex justify-content-center mb-5">
                 <div class="btn-group cycle-group shadow-sm" role="group" aria-label="Billing Cycle">
                     <input type="radio" class="btn-check" name="billingCycle" id="btnMonthly" autocomplete="off" onchange="updatePricing('Monthly')" checked>
@@ -337,7 +318,6 @@
 
             <div class="row g-4 justify-content-center text-start">
                 
-                <!-- Basic Plan -->
                 <div class="col-lg-4 col-md-6">
                     <div class="pricing-card">
                         <h4 class="fw-bold text-center">Basic Plan</h4>
@@ -357,7 +337,6 @@
                     </div>
                 </div>
 
-                <!-- Premium Plan -->
                 <div class="col-lg-4 col-md-6">
                     <div class="pricing-card popular">
                         <div class="pricing-badge">Most Popular</div>
@@ -384,7 +363,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer text-center">
         <div class="container">
             <h4 class="fw-bold text-dark mb-3">
@@ -399,7 +377,6 @@
         </div>
     </footer>
 
-    <!-- ONBOARDING & TRUST+AUDIT REGISTRATION MODAL -->
     <div class="modal fade" id="onboardingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg">
@@ -409,7 +386,6 @@
                 </div>
                 <div class="modal-body p-4">
                     
-                    <!-- Step 1: Form -->
                     <div id="obStep1">
                         <form id="regForm" onsubmit="submitRegistration(event)">
                             <div class="mb-3">
@@ -420,12 +396,13 @@
                                 <label class="form-label small fw-bold text-secondary">BILLING EMAIL *</label>
                                 <input type="email" id="regEmail" class="form-control bg-light fw-bold" required>
                             </div>
-                            <div class="row g-2 mb-4">
+                            <div class="row g-2 mb-4" id="billingOptionsRow">
                                 <div class="col-6">
                                     <label class="form-label small fw-bold text-secondary">SELECTED TIER</label>
                                     <select id="regTier" class="form-select bg-light fw-bold text-primary">
                                         <option value="Basic">Basic Plan</option>
                                         <option value="Premium">Premium Plan</option>
+                                        <option value="Demo" class="d-none">Demo Sandbox</option>
                                     </select>
                                 </div>
                                 <div class="col-6">
@@ -439,7 +416,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Mandatory Legal Checkbox -->
                             <div class="form-check mb-4 bg-light p-3 border rounded">
                                 <input class="form-check-input ms-1" type="checkbox" id="tosAgree" required style="transform: scale(1.2); margin-top: 0.3rem;">
                                 <label class="form-check-label small text-muted ms-2" for="tosAgree">
@@ -453,7 +429,6 @@
                         </form>
                     </div>
 
-                    <!-- Step 2: Payment & UTR (Hidden Initially) -->
                     <div id="obStep2" class="d-none text-center">
                         <div class="alert alert-info border fw-bold small text-start mb-3">
                             <i class="bi bi-info-circle-fill me-2"></i>Please scan the QR code below using any UPI app to pay the ₹5,000 Setup Fee. Once paid, enter the 12-digit UTR below.
@@ -463,7 +438,6 @@
                             <div id="qrCodeContainer"></div>
                         </div>
                         
-                        <!-- Added Proprietary Compliance Note -->
                         <div class="alert alert-warning small text-start mb-4 border-0" style="background-color: #fff8e6;">
                             <strong>📋 Payment Compliance Note</strong><br>
                             Opsify Lab is a proprietary software brand owned and operated by <strong>Taha Kanchwala</strong>. In strict accordance with the Ministry of MSME and GST council guidelines for businesses operating below the statutory registration threshold, all financial settlements are securely routed directly to the proprietor's verified account. Your automated invoice will perfectly reflect this corporate structure for your accounting and tax records.
@@ -480,11 +454,10 @@
                         </form>
                     </div>
 
-                    <!-- Step 3: Success (Hidden Initially) -->
                     <div id="obStep3" class="d-none text-center py-4">
                         <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
-                        <h4 class="fw-bold text-dark mt-3">Account Provisioned!</h4>
-                        <p class="text-muted mb-4">Your dedicated cloud database has been successfully cloned. Your temporary password and login instructions have been sent to your email.</p>
+                        <h4 class="fw-bold text-dark mt-3" id="successTitle">Account Provisioned!</h4>
+                        <p class="text-muted mb-4" id="successDesc">Your dedicated cloud database has been successfully cloned. Your temporary password and login instructions have been sent to your email.</p>
                         <a href="https://erp.opsifylab.com" class="btn btn-outline-primary fw-bold px-4">Go to Login</a>
                     </div>
                     
@@ -495,9 +468,6 @@
         </div>
     </div>
 
-    <!-- TERMS MODALS -->
-    
-    <!-- Terms of Service Modal -->
     <div class="modal fade" id="tosModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
@@ -520,7 +490,6 @@
         </div>
     </div>
 
-    <!-- Single-User Access Policy Modal -->
     <div class="modal fade" id="singleUserModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
@@ -541,7 +510,6 @@
         </div>
     </div>
 
-    <!-- Trust + Audit Payment Policy Modal -->
     <div class="modal fade" id="trustAuditModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
@@ -567,6 +535,7 @@
         const API_URL = "https://script.google.com/macros/s/AKfycbw3DYbWlHs5IL1rH3OBDAMl3M_G1p33D51bQgRElynEIzVz3KWtDiw9LitjU1KBd0I-BQ/exec";
         let currentBillingCycle = "Monthly";
         let tempClientId = "";
+        let isDemoMode = false;
 
         // API Wrapper
         async function callAPI(action, payload = {}) {
@@ -597,8 +566,20 @@
         const onboardModal = new bootstrap.Modal(document.getElementById('onboardingModal'));
         
         function openOnboarding(tier) {
+            isDemoMode = false;
             document.getElementById('regTier').value = tier;
             document.getElementById('regCycle').value = currentBillingCycle;
+            document.getElementById('billingOptionsRow').classList.remove('d-none');
+            document.getElementById('btnRegister').innerText = 'Register & Pay ₹5,000 Setup Fee';
+            resetOnboarding();
+            onboardModal.show();
+        }
+
+        function openDemoOnboarding() {
+            isDemoMode = true;
+            document.getElementById('regTier').value = 'Demo';
+            document.getElementById('billingOptionsRow').classList.add('d-none');
+            document.getElementById('btnRegister').innerText = 'Create Free Demo Account';
             resetOnboarding();
             onboardModal.show();
         }
@@ -615,6 +596,7 @@
         async function submitRegistration(e) {
             e.preventDefault();
             const btn = document.getElementById('btnRegister');
+            const originalText = btn.innerText;
             btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
             btn.disabled = true;
             document.getElementById('obError').classList.add('d-none');
@@ -630,25 +612,35 @@
                 const res = await callAPI('registerClient', payload);
                 tempClientId = res.clientId;
                 
-                // Switch to Step 2 and generate QR
-                document.getElementById('obStep1').classList.add('d-none');
-                document.getElementById('obStep2').classList.remove('d-none');
-                
-                // Using QRCode library embedded in head
-                new QRCode(document.getElementById("qrCodeContainer"), {
-                    text: res.upiLink,
-                    width: 200,
-                    height: 200,
-                    colorDark : "#1e2227",
-                    colorLight : "#ffffff",
-                    correctLevel : QRCode.CorrectLevel.H
-                });
+                if (res.tier === 'Demo') {
+                    // Bypass UTR Step completely for Demo
+                    document.getElementById('obStep1').classList.add('d-none');
+                    document.getElementById('obStep3').classList.remove('d-none');
+                    document.getElementById('successTitle').innerText = "Demo Account Provisioned!";
+                    document.getElementById('successDesc').innerText = "Your secure sandbox database has been instantly created. Your temporary password and login instructions have been sent to your email.";
+                } else {
+                    // Switch to Step 2 and generate QR for paid tiers
+                    document.getElementById('obStep1').classList.add('d-none');
+                    document.getElementById('obStep2').classList.remove('d-none');
+                    document.getElementById('successTitle').innerText = "Account Provisioned!";
+                    document.getElementById('successDesc').innerText = "Your dedicated cloud database has been successfully cloned. Your temporary password and login instructions have been sent to your email.";
+                    
+                    // Using QRCode library embedded in head
+                    new QRCode(document.getElementById("qrCodeContainer"), {
+                        text: res.upiLink,
+                        width: 200,
+                        height: 200,
+                        colorDark : "#1e2227",
+                        colorLight : "#ffffff",
+                        correctLevel : QRCode.CorrectLevel.H
+                    });
+                }
                 
             } catch (err) {
                 document.getElementById('obError').innerText = err.message;
                 document.getElementById('obError').classList.remove('d-none');
             }
-            btn.innerHTML = 'Register & Pay ₹5,000 Setup Fee';
+            btn.innerHTML = originalText;
             btn.disabled = false;
         }
 
