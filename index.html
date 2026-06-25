@@ -77,7 +77,36 @@
         .feature-list { list-style: none; padding: 0; margin: 30px 0; text-align: left; }
         .feature-list li { margin-bottom: 12px; display: flex; align-items: flex-start; }
         .feature-list li i { color: #198754; margin-right: 10px; font-size: 1.2rem; }
-        
+
+
+        .comparison-wrapper{
+                    max-width: 850px;
+                    margin: 0 auto;
+                }
+
+                .comparison-table{
+                    background: #fff;
+                    border-radius: 12px;
+                    overflow: hidden;
+                }
+
+                .comparison-table th,
+                .comparison-table td{
+                    padding: 14px 18px;
+                }
+
+                .comparison-table td:first-child,
+                .comparison-table th:first-child{
+                    width: 65%;
+                }
+
+                .comparison-table td:nth-child(2),
+                .comparison-table td:nth-child(3),
+                .comparison-table th:nth-child(2),
+                .comparison-table th:nth-child(3){
+                    width: 17.5%;
+                    text-align: center;
+                }
         /* 4-Way Toggle Switch */
         .cycle-group .btn { font-size: 0.9rem; padding: 10px 15px; }
         .cycle-group .btn small { display: block; margin-top: 2px; }
@@ -503,7 +532,7 @@
         Compare Plans
     </h3>
 
-    <div class="table-responsive">
+    <div class="table-responsive mx-auto comparison-wrapper">
         <table class="table table-bordered align-middle comparison-table bg-white shadow-sm">
 
             <thead class="table-light">
